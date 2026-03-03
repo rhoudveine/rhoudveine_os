@@ -1,7 +1,7 @@
 # Rhoudveine System
 <img width="2000" height="2000" alt="RHOUDVEINE(4)" src="https://github.com/user-attachments/assets/0b314101-1171-4eca-98c4-5005edf1b21d" />
 
-Rhoudveine is a custom, 64-bit operating system kernel written in C and Assembly for the x86_64 architecture. It is an experimental project designed to explore OS concepts from scratch, unincumbered by decades of legacy compatibility layers.
+Rhoudveine is a custom, 64-bit operating system written in C and Assembly for the x86_64 architecture. It is an experimental project designed to explore OS concepts from scratch, unincumbered by decades of legacy compatibility layers.
 
 ## [ 🧠 ] Philosophy
 
@@ -68,9 +68,9 @@ apt-get update && apt-get install -y grub-common grub-pc-bin xorriso mtools nasm
 2.  **Compile the kernel and create ISO:**
     ```bash
     make clean
-    make build-x86_64
+    make ISO
     ```
-    The kernel image will be located at `dist/x86_64/rhoudveine`.
+    The ISO image will be located at `/ISO`.
     Also there will be a conviniently crafted iso image for quick testing that will be located at `dist/x86_64/kernel.iso`.
 
 ##  [ BOOT ] Running
