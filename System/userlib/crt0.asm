@@ -13,10 +13,5 @@ _start:
     ; Just call main directly
     call main
     
-    ; Exit with return value from main
-    mov rdi, rax    ; Return value -> exit status
-    mov rax, 0      ; SYS_EXIT = 0
-    syscall
-    
-    ; Should never reach here
-    hlt
+    ; Return to the kernel (the loader called us with 'call')
+    ret

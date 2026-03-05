@@ -1,0 +1,29 @@
+# Rhoudveine Init Script (initrc)
+# Runs automatically at boot by graviton (PID 1).
+# Creates the runtime directory structure defined in root_directory_structure.txt
+
+echo Setting up runtime environment...
+
+# /System/Rhoudveine structure
+mkdir /System/Rhoudveine/Programs
+mkdir /System/Rhoudveine/Library
+mkdir /System/Rhoudveine/Databases
+mkdir /System/Rhoudveine/Booter/EFI
+
+# Runtime folders (not stored on disk, created fresh each boot)
+mkdir /System/Rhoudveine/Runtime
+mkdir /System/Rhoudveine/Runtime/Device
+mkdir /System/Rhoudveine/Runtime/Process
+
+# Mount runtime virtual filesystems
+mount /System/Rhoudveine/Runtime/Device DeviceFS none
+mount /System/Rhoudveine/Runtime/Process ProcessFS none
+
+# User home directory structure
+mkdir /Users
+mkdir /Users/root
+mkdir /Users/root/Programs
+mkdir /Users/root/.local
+
+echo System initialized.
+echo Welcome to Rhoudveine OS.

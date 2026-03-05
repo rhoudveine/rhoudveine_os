@@ -59,6 +59,22 @@ run-host: $(ISO)
 	    -drive if=pflash,format=raw,file=$(OVMF_VARS) \
 	    -cdrom $(ISO) \
 	    -serial stdio \
+	    -device virtio-vga,xres=1024,yres=768 \
+	    -device qemu-xhci \
+	    -no-reboot
+
+run-amd: $(ISO)
+	@cp -f $(OVMF_VARS_SRC) $(OVMF_VARS)
+	qemu-system-x86_64 \
+	    -enable-kvm \
+	    -cpu Opteron_G5-v1 \
+	    -machine q35 \
+	    -smp 4 \
+	    -m 4G \
+	    -drive if=pflash,format=raw,readonly=on,file=$(OVMF_CODE) \
+	    -drive if=pflash,format=raw,file=$(OVMF_VARS) \
+	    -cdrom $(ISO) \
+	    -serial stdio \
 	    -vga std \
 	    -device qemu-xhci \
 	    -no-reboot
